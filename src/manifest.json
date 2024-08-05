@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Candy",
-  "description": "Download your images with proper names",
+  "description": "Download your images with proper name using AI",
   "options_page": "options.html",
   "background": {
     "service_worker": "background.bundle.js"

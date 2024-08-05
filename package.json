@@ -1,11 +1,11 @@
 {
-  "name": "chrome-extension-boilerplate-react",
-  "version": "0.0.1",
-  "description": "A chrome extension boilerplate built with React 18, Webpack 5, and Webpack Dev Server 4",
+  "name": "Candy",
+  "version": "1.0.0",
+  "description": "Download your images with proper name using AI",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lxieyang/chrome-extension-boilerplate-react.git"
+    "url": "git@github.com:maoxiaoke/extension-rename.git"
   },
   "scripts": {
     "build": "node utils/build.js",
