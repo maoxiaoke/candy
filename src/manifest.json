@@ -12,14 +12,14 @@
   },
   "permissions": [
     "contextMenus",
-    "downloads"
+    "downloads",
+    "tabs",
+    "activeTab",
+    "storage"
   ],
   "host_permissions": [
     "https://api.coze.com/"
   ],
-  "chrome_url_overrides": {
-    "newtab": "newtab.html"
-  },
   "icons": {
     "128": "icon-128.png"
   },

@@ -1,25 +1,42 @@
 import React from 'react';
-// import logo from '../../assets/img/logo.svg';
-import Greetings from '../../containers/Greetings/Greetings';
+
+import { Switch } from '../../components/ui/switch'
 import './Popup.css';
+import { getSettings } from '../../utils/index';
 
 const Popup = () => {
+  const onRenameChange = async (checked) => {
+    const settings = await getSettings();
+
+    console.log('settings', settings)
+
+    chrome.storage.sync.set({
+      ...settings,
+      getResponseWhenContextMenuShown: checked,
+    }, () => {
+      console.log('Settings saved');
+    });
+  }
+
+  const onContextMenuChange = async (checked) => {
+    const settings = await getSettings();
+
+    chrome.storage.sync.set({
+      ...settings,
+      renameAfterDownload: checked,
+    }, () => {
+      console.log('Settings saved');
+    });
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>
-          Edit <code>src/pages/Popup/Popup.jsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React!
-        </a>
-      </header>
+    <div className="popup">
+      <form>
+        <Switch label="Rename image after loaded" onCheckedChange={onRenameChange} />
+        
+        <div className="divider"></div>
+        <Switch label="Get response when context menu shown" onCheckedChange={onContextMenuChange} />
+      </form>
     </div>
   );
 };

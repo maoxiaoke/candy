@@ -1,0 +1,41 @@
+@import '@radix-ui/colors/black-alpha.css';
+
+/* reset */
+button {
+  all: unset;
+}
+
+.SwitchRoot {
+  width: 35px;
+  height: 20px;
+  background-color: var(--black-a9);
+  border-radius: 9999px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.SwitchRoot[data-state='checked'] {
+  background-color: black;
+}
+
+.SwitchThumb {
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-color: white;
+  border-radius: 9999px;
+  box-shadow: 0 2px 2px var(--black-a7);
+  transition: transform 100ms;
+  transform: translateX(2px);
+  will-change: transform;
+}
+
+.SwitchThumb[data-state='checked'] {
+  transform: translateX(19px);
+}
+
+.Label {
+  color: #000;
+  font-size: 13px;
+  line-height: 1;
+}
