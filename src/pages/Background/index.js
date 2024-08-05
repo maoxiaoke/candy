@@ -123,7 +123,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId === 'candy-download-image') {
     const { renameAfterDownload = true } = await getSettings();
 
-    if (renameAfterDownload) {
+    if (!renameAfterDownload) {
       await getCachingOut(info.srcUrl);
     } else {
       getCachingOut(info.srcUrl).then(async (ot) => {
