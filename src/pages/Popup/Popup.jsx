@@ -8,8 +8,6 @@ const Popup = () => {
   const onRenameChange = async (checked) => {
     const settings = await getSettings();
 
-    console.log('settings', settings)
-
     chrome.storage.sync.set({
       ...settings,
       getResponseWhenContextMenuShown: checked,
