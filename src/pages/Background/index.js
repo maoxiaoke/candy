@@ -30,40 +30,40 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
-chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
-  const { type, url } = message;
-  if (type === 'imageRightClick') {
-    if (requestCaching[url]) {
-      return;
-    }
+// chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
+//   const { type, url } = message;
+//   if (type === 'imageRightClick') {
+//     if (requestCaching[url]) {
+//       return;
+//     }
 
-    requestCaching[url] = {
-      state: 'fetching',
-      id: url,
-    };
+//     requestCaching[url] = {
+//       state: 'fetching',
+//       id: url,
+//     };
 
-    const ot = await getGPT4oOutput(url);
+//     const ot = await getGPT4oOutput(url);
 
-    if (ot) {
-      requestCaching[url] = {
-        ...(requestCaching[url] ?? {}),
-        state: 'fetched',
-        ot,
-      };
-    }
+//     if (ot) {
+//       requestCaching[url] = {
+//         ...(requestCaching[url] ?? {}),
+//         state: 'fetched',
+//         ot,
+//       };
+//     }
 
-    eventBus.dispatchEvent(
-      new CustomEvent('get-ot', {
-        detail: {
-          id: url,
-          ot: ot,
-        },
-      })
-    );
+//     eventBus.dispatchEvent(
+//       new CustomEvent('get-ot', {
+//         detail: {
+//           id: url,
+//           ot: ot,
+//         },
+//       })
+//     );
 
-    sendResponse({ received: true }); // 发送响应
-  }
-});
+//     sendResponse({ received: true }); // 发送响应
+//   }
+// });
 
 chrome.downloads.onDeterminingFilename.addListener((downloadItem, suggest) => {
   const extension = downloadItem.filename.split('.').pop();
@@ -189,6 +189,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
 async function getCachingOut(imageUrl) {
   if (requestCaching[imageUrl]) {
     const cachingItem = requestCaching[imageUrl];
+
     if (cachingItem?.state === 'fetched') {
       return cachingItem.ot;
     }
@@ -212,6 +213,7 @@ async function getCachingOut(imageUrl) {
       state: 'fetching',
       id: imageUrl,
     };
+
     const nameByAI = await getGPT4oOutput(imageUrl);
 
     requestCaching[imageUrl] = {
@@ -220,6 +222,15 @@ async function getCachingOut(imageUrl) {
       id: imageUrl,
       ot: nameByAI,
     };
+
+    eventBus.dispatchEvent(
+      new CustomEvent('get-ot', {
+        detail: {
+          id: url,
+          ot: ot,
+        },
+      })
+    );
 
     return nameByAI;
   } catch (error) {

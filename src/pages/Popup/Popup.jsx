@@ -44,8 +44,8 @@ const Popup = () => {
       <form>
         <Switch label="Rename image after loaded" onCheckedChange={onRenameChange} value={settings?.renameAfterDownload} />
         
-        <div className="divider"></div>
-        <Switch label="Get response when context menu shown" onCheckedChange={onContextMenuChange} value={settings?.getResponseWhenContextMenuShown} />
+        {/* <div className="divider"></div> */}
+        {/* <Switch label="Get response when context menu shown" onCheckedChange={onContextMenuChange} value={settings?.getResponseWhenContextMenuShown} /> */}
       </form>
     </div>
   );

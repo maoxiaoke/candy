@@ -1,6 +1,6 @@
 export const defaultSettings = {
   renameAfterDownload: true,
-  getResponseWhenContextMenuShown: true,
+  // getResponseWhenContextMenuShown: true,
 };
 
 export const getSettings = () => {
