@@ -13,8 +13,6 @@
   "permissions": [
     "contextMenus",
     "downloads",
-    "tabs",
-    "activeTab",
     "storage"
   ],
   "host_permissions": [
