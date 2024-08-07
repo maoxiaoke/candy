@@ -226,8 +226,8 @@ async function getCachingOut(imageUrl) {
     eventBus.dispatchEvent(
       new CustomEvent('get-ot', {
         detail: {
-          id: url,
-          ot: ot,
+          id: imageUrl,
+          ot: nameByAI,
         },
       })
     );

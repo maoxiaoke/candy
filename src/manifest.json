@@ -16,7 +16,7 @@
     "storage"
   ],
   "host_permissions": [
-    "https://api.coze.com/"
+    "https://throbbing-block-e60e.nazha.workers.dev/"
   ],
   "icons": {
     "128": "icon-128.png"
