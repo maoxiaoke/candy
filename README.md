@@ -6,7 +6,7 @@ Candy is a fascinating AI-powered browser extension that revolutionizes the way 
 
 **It's free!!!**
 
-<video src="https://github.com/maoxiaoke/candy/raw/main/intro.mp4"></video>
+https://github.com/user-attachments/assets/b64a3c90-3a84-4c39-9a05-972bc1ce65c0
 
 ## About Author
 
