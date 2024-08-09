@@ -14,7 +14,6 @@
     "contextMenus",
     "downloads",
     "storage",
-    "tabs"
   ],
   "host_permissions": [
     "https://throbbing-block-e60e.nazha.workers.dev/"
