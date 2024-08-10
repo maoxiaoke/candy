@@ -13,7 +13,7 @@
   "permissions": [
     "contextMenus",
     "downloads",
-    "storage",
+    "storage"
   ],
   "host_permissions": [
     "https://throbbing-block-e60e.nazha.workers.dev/"
